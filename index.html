@@ -446,7 +446,9 @@
             height: 100%;
             background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-cyan) 100%);
             border-radius: 4px;
-            animation: skill-load 2s ease-out;
+            /* CORREÇÃO 2: Definir largura inicial como 0 e usar transição */
+            width: 0;
+            transition: width 1.5s ease-out;
             position: relative;
             overflow: hidden;
         }
@@ -459,12 +461,14 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2s infinite;
+            /* CORREÇÃO 2: Removida a animação 'shimmer' para simplificar, 
+               mas pode ser mantida se desejar. A 'skill-load' foi removida. */
         }
 
-        @keyframes skill-load {
+        /* @keyframes skill-load {
             0% { width: 0; }
         }
+        */
 
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
@@ -908,12 +912,10 @@
     </style>
 </head>
 <body>
-    <!-- Loader -->
     <div class="loader" id="loader">
         <div class="loader-text">Initializing Security Systems...</div>
     </div>
 
-    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="#hero">HOME</a></li>
@@ -926,10 +928,8 @@
         </ul>
     </nav>
 
-    <!-- Matrix Background -->
     <canvas id="matrix"></canvas>
 
-    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
             <h1>RAPHAEL R. DE MOURA NETO</h1>
@@ -942,13 +942,12 @@
         </div>
     </section>
 
-    <!-- Metrics Dashboard -->
     <section id="metrics">
         <div class="container">
             <h2 class="section-title">LIVE METRICS DASHBOARD</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-value" data-target="500">0</div>
+                    <div class="metric-value" data-target="500+">0</div>
                     <div class="metric-label">Incidents Resolved</div>
                 </div>
                 <div class="metric-card">
@@ -956,26 +955,25 @@
                     <div class="metric-label">Detection Time</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value" data-target="40">0%</div>
+                    <div class="metric-value" data-target="40%">0%</div>
                     <div class="metric-label">MTTR Reduction</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value" data-target="35">0%</div>
+                    <div class="metric-value" data-target="35%">0%</div>
                     <div class="metric-label">False Positives Reduced</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value" data-target="15">0</div>
+                    <div class="metric-value" data-target="15+">0</div>
                     <div class="metric-label">Automation Scripts</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value" data-target="20">0h</div>
+                    <div class="metric-value" data-target="20h">0h</div>
                     <div class="metric-label">Hours Saved Weekly</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Terminal -->
     <section id="about">
         <div class="container">
             <h2 class="section-title">TERMINAL ACCESS</h2>
@@ -998,7 +996,6 @@
         </div>
     </section>
 
-    <!-- Experience Timeline -->
     <section id="experience">
         <div class="container">
             <h2 class="section-title">EXPERIENCE TIMELINE</h2>
@@ -1031,7 +1028,6 @@
         </div>
     </section>
 
-    <!-- Skills Matrix -->
     <section id="skills">
         <div class="container">
             <h2 class="section-title">SKILLS MATRIX</h2>
@@ -1044,7 +1040,7 @@
                             <span>90%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" data-width="90%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1053,7 +1049,7 @@
                             <span>90%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" data-width="90%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1062,7 +1058,7 @@
                             <span>85%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" data-width="85%"></div>
                         </div>
                     </div>
                 </div>
@@ -1075,7 +1071,7 @@
                             <span>85%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" data-width="85%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1084,7 +1080,7 @@
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-progress" data-width="80%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1093,7 +1089,7 @@
                             <span>75%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
+                            <div class="skill-progress" data-width="75%"></div>
                         </div>
                     </div>
                 </div>
@@ -1106,7 +1102,7 @@
                             <span>90%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" data-width="90%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1115,7 +1111,7 @@
                             <span>85%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" data-width="85%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -1124,7 +1120,7 @@
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-progress" data-width="80%"></div>
                         </div>
                     </div>
                 </div>
@@ -1132,7 +1128,6 @@
         </div>
     </section>
 
-    <!-- Projects Showcase -->
     <section id="projects">
         <div class="container">
             <h2 class="section-title">PROJECTS SHOWCASE</h2>
@@ -1154,350 +1149,4 @@
 
                 <div class="project-card">
                     <h3>📊 Executive Security Dashboard</h3>
-                    <p>Real-time dashboard translating technical metrics into business language for C-level</p>
-                    <ul class="project-stats">
-                        <li>Custom KPIs and metrics</li>
-                        <li>Used by C-level executives</li>
-                        <li>Real-time threat intelligence</li>
-                    </ul>
-                    <div class="project-tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">REST APIs</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>🔍 Anomaly Detection Framework</h3>
-                    <p>Custom framework using behavioral analysis to detect unusual patterns</p>
-                    <ul class="project-stats">
-                        <li>100+ threats prevented monthly</li>
-                        <li>API integrations with 5+ tools</li>
-                        <li>97% accuracy rate</li>
-                    </ul>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">API Integration</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications">
-        <div class="container">
-            <h2 class="section-title">CERTIFICATIONS</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">🔐</div>
-                    <div class="cert-name">Google IT Security Professional</div>
-                    <div class="cert-issuer">Google</div>
-                    <div class="cert-year">2024</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">☁️</div>
-                    <div class="cert-name">AWS Cloud Practitioner</div>
-                    <div class="cert-issuer">Amazon Web Services</div>
-                    <div class="cert-year">2023</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">📋</div>
-                    <div class="cert-name">ISO 27001 Associate</div>
-                    <div class="cert-issuer">ISO</div>
-                    <div class="cert-year">2023</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">🛡️</div>
-                    <div class="cert-name">CyberOps Associate</div>
-                    <div class="cert-issuer">Cisco</div>
-                    <div class="cert-year">2022</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">🌐</div>
-                    <div class="cert-name">CCNA v7</div>
-                    <div class="cert-issuer">Cisco</div>
-                    <div class="cert-year">2022</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">📊</div>
-                    <div class="cert-name">Wazuh for Security Engineers</div>
-                    <div class="cert-issuer">Wazuh</div>
-                    <div class="cert-year">2023</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Security Feed -->
-    <section id="security-feed">
-        <div class="container">
-            <h2 class="section-title">LIVE SECURITY FEED</h2>
-            <div class="feed-container">
-                <div class="feed-header">
-                    <div class="feed-status">
-                        <span class="live-indicator">LIVE</span>
-                        <span>MONITORING ACTIVE</span>
-                    </div>
-                </div>
-                <div class="feed-content" id="feed-content">
-                    <!-- Dynamic content will be inserted here -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">CONTACT</h2>
-            <p style="margin-bottom: 30px; color: var(--text-gray);">Let's secure the future together</p>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <h3>📧 Email</h3>
-                    <a href="mailto:raphaelmoura@live.com.pt">raphaelmoura@live.com.pt</a>
-                </div>
-                <div class="contact-item">
-                    <h3>💼 LinkedIn</h3>
-                    <a href="https://linkedin.com/in/raphaelneto11" target="_blank">linkedin.com/in/raphaelneto11</a>
-                </div>
-                <div class="contact-item">
-                    <h3>📱 Phone</h3>
-                    <a href="tel:+5514998189598">(14) 99818-9598</a>
-                </div>
-                <div class="contact-item">
-                    <h3>📍 Location</h3>
-                    <span style="color: var(--text-white); font-size: 0.9rem;">Avaré, SP, Brazil</span>
-                </div>
-            </div>
-            <a href="CV.pdf" class="download-cv" onclick="alert('CV download will be implemented with your actual CV file!')">DOWNLOAD CV</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Raphael R. de Moura Neto | Built with security in mind</p>
-            <p class="footer-quote">"It's never too late to restart"</p>
-        </div>
-    </footer>
-
-    <!-- Easter Egg Modal -->
-    <div class="easter-egg" id="easter-egg">
-        <h3 style="color: var(--primary-green); margin-bottom: 15px;">🛡️ Nice try!</h3>
-        <p style="color: var(--text-white);">But I'm on the Blue Team!</p>
-        <p style="color: var(--text-gray); margin-top: 15px; font-size: 0.85rem;">Press ESC to continue...</p>
-    </div>
-
-    <script>
-        // Matrix Rain Effect
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-        const matrixArray = matrix.split("");
-
-        const fontSize = 10;
-        const columns = canvas.width / fontSize;
-
-        const drops = [];
-        for(let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(10, 10, 10, 0.04)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#00ff41';
-            ctx.font = fontSize + 'px monospace';
-
-            for(let i = 0; i < drops.length; i++) {
-                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 35);
-
-        // Typewriter Effect
-        const typewriter = document.getElementById('typewriter');
-        const texts = [
-            'SOC Analyst',
-            'Threat Hunter',
-            'Security Automation Expert',
-            'Incident Response Specialist',
-            'Python Developer',
-            'Blue Team Defender'
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typewriter.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typewriter.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                setTimeout(type, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                setTimeout(type, 500);
-            } else {
-                setTimeout(type, isDeleting ? 50 : 100);
-            }
-        }
-
-        type();
-
-        // Counter Animation
-        function animateCounter(element, target, suffix = '') {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current) + suffix;
-            }, 30);
-        }
-
-        // Threats Counter
-        const threatsCounter = document.getElementById('threats-counter');
-        function updateThreats() {
-            const random = Math.floor(Math.random() * 10) + 120;
-            threatsCounter.textContent = random;
-            setTimeout(updateThreats, 3000);
-        }
-        updateThreats();
-
-        // Animate metrics on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const metricValues = entry.target.querySelectorAll('.metric-value[data-target]');
-                    metricValues.forEach(metric => {
-                        const target = parseInt(metric.getAttribute('data-target'));
-                        const suffix = metric.textContent.includes('%') ? '%' : 
-                                       metric.textContent.includes('h') ? 'h' : '+';
-                        animateCounter(metric, target, suffix);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-
-        const metricsSection = document.getElementById('metrics');
-        if (metricsSection) {
-            observer.observe(metricsSection);
-        }
-
-        // Live Security Feed
-        const feedItems = [
-            { type: 'blocked', message: 'Brute force attempt from IP 10.0.0.45' },
-            { type: 'detected', message: 'Potential data exfiltration attempt' },
-            { type: 'secured', message: 'Vulnerability patched successfully' },
-            { type: 'blocked', message: 'SQL injection attempt detected' },
-            { type: 'detected', message: 'Suspicious registry modification' },
-            { type: 'secured', message: 'Security scan completed - 0 critical issues' },
-            { type: 'blocked', message: 'Malware execution blocked' },
-            { type: 'detected', message: 'Anomalous network traffic pattern' },
-            { type: 'secured', message: 'Firewall rules updated' },
-            { type: 'blocked', message: 'Unauthorized access attempt' }
-        ];
-
-        function addFeedItem() {
-            const feedContent = document.getElementById('feed-content');
-            const item = feedItems[Math.floor(Math.random() * feedItems.length)];
-            const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            
-            const feedDiv = document.createElement('div');
-            feedDiv.className = `feed-item ${item.type}`;
-            feedDiv.innerHTML = `
-                <span class="feed-time">${time}</span>
-                <span class="feed-type ${item.type}">${item.type}</span>
-                <span>${item.message}</span>
-            `;
-            
-            feedContent.insertBefore(feedDiv, feedContent.firstChild);
-            
-            // Keep only last 10 items
-            while (feedContent.children.length > 10) {
-                feedContent.removeChild(feedContent.lastChild);
-            }
-        }
-
-        // Add initial feed items
-        for (let i = 0; i < 5; i++) {
-            addFeedItem();
-        }
-
-        // Add new feed item every 3 seconds
-        setInterval(addFeedItem, 3000);
-
-        // Easter Egg
-        let konamiCode = [];
-        const konamiPattern = ['h', 'a', 'c', 'k'];
-        
-        document.addEventListener('keypress', (e) => {
-            konamiCode.push(e.key.toLowerCase());
-            konamiCode = konamiCode.slice(-4);
-            
-            if (konamiCode.join('') === konamiPattern.join('')) {
-                document.getElementById('easter-egg').classList.add('active');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.getElementById('easter-egg').classList.remove('active');
-            }
-        });
-
-        // Remove loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1500);
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.getElementById('matrix');
-            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-        });
-    </script>
-</body>
-</html>
+                    <p>Real-time dashboard translating technical metrics into business
