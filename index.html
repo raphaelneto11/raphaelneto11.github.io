@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,16 @@
     <link rel="shortcut icon" href="./favicon.ico">
 
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGH1KBT480"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NGH1KBT480');
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -39,7 +49,6 @@
             position: relative;
         }
 
-        /* Matrix Rain Background */
         #matrix {
             position: fixed;
             top: 0;
@@ -59,7 +68,6 @@
             z-index: 1;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -104,13 +112,12 @@
         nav a:hover::before {
             opacity: 1;
         }
-
-        /* NOVO: Estilo para o Seletor de Idioma */
+        
         .lang-switcher {
             display: flex;
             align-items: center;
             gap: 5px;
-            margin-left: 20px; /* Dá um espaço extra */
+            margin-left: 20px;
         }
         .lang-switcher span {
             color: var(--text-gray);
@@ -130,9 +137,7 @@
         .lang-btn:hover {
             color: var(--primary-cyan);
         }
-        /* Fim do estilo do seletor */
 
-        /* Hero Section */
         #hero {
             min-height: 100vh;
             display: flex;
@@ -183,7 +188,7 @@
         }
 
         .status-bar span {
-            margin: 0 15px;
+            margin: 0 10px;
         }
 
         .status-indicator {
@@ -201,7 +206,6 @@
             25%, 75% { opacity: 0.3; }
         }
 
-        /* Metrics Section */
         #metrics {
             padding: 80px 20px;
             background: linear-gradient(180deg, var(--dark-bg) 0%, #0f0f0f 100%);
@@ -281,7 +285,6 @@
             color: var(--text-gray);
         }
 
-        /* Terminal Section */
         #about {
             padding: 80px 20px;
         }
@@ -342,7 +345,6 @@
             51%, 100% { opacity: 0; }
         }
 
-        /* Experience Timeline */
         #experience {
             padding: 80px 20px;
             background: linear-gradient(180deg, #0f0f0f 0%, var(--dark-bg) 100%);
@@ -433,7 +435,6 @@
             animation: pulse 2s infinite;
         }
 
-        /* Skills Section */
         #skills {
             padding: 80px 20px;
         }
@@ -503,7 +504,6 @@
             100% { transform: translateX(100%); }
         }
 
-        /* Projects Section */
         #projects {
             padding: 80px 20px;
             background: linear-gradient(180deg, var(--dark-bg) 0%, #0f0f0f 100%);
@@ -595,7 +595,6 @@
             border: 1px solid var(--primary-green);
         }
 
-        /* Certifications */
         #certifications {
             padding: 80px 20px;
         }
@@ -647,7 +646,6 @@
             font-family: 'Fira Code', monospace;
         }
 
-        /* Security Feed */
         #security-feed {
             padding: 80px 20px;
             background: linear-gradient(180deg, #0f0f0f 0%, var(--dark-bg) 100%);
@@ -761,7 +759,6 @@
             color: var(--dark-bg);
         }
 
-        /* Contact Section */
         #contact {
             padding: 80px 20px;
             text-align: center;
@@ -828,7 +825,6 @@
             box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -844,7 +840,6 @@
             font-family: 'Fira Code', monospace;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             nav ul {
                 gap: 15px;
@@ -852,44 +847,35 @@
             .lang-switcher {
                 margin-left: 0;
             }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                flex-direction: column !important;
-                margin-left: 50px;
-            }
-
-            .timeline-content {
-                width: calc(100% - 50px);
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .status-bar {
-                font-size: 12px;
-            }
-
             .status-bar span {
                 display: block;
                 margin: 5px 0;
             }
-
+            .timeline::before {
+                left: 30px;
+            }
+            .timeline-item {
+                flex-direction: column !important;
+                margin-left: 50px;
+            }
+            .timeline-content {
+                width: calc(100% - 50px);
+            }
+            .timeline-dot {
+                left: 30px;
+            }
+            .status-bar {
+                font-size: 12px;
+            }
             .projects-grid,
             .skills-container {
                 grid-template-columns: 1fr;
             }
-            
             .metrics-grid, .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Loading Animation */
         .loader {
             position: fixed;
             top: 0;
@@ -915,7 +901,6 @@
             font-size: 1.2rem;
         }
 
-        /* Easter Egg */
         .easter-egg {
             position: fixed;
             top: 50%;
@@ -978,6 +963,7 @@
                 <span><span class="status-indicator"></span><span data-key="statusBarSecure">System Status: SECURE</span></span>
                 <span><span data-key="statusBarThreats">Threats Blocked:</span> <span id="threats-counter">0</span></span>
                 <span><span data-key="statusBarUptime">Uptime: 99.9%</span></span>
+                <span><span data-key="statusBarVisitors">Visitors:</span> <span id="visitor-counter">...</span></span>
             </div>
         </div>
     </section>
@@ -1335,11 +1321,9 @@
 
     <script>
         // ======================================================
-        // INÍCIO DO SCRIPT DE TRADUÇÃO
+        // DICIONÁRIO DE TRADUÇÃO
         // ======================================================
-
         const translations = {
-            // Meta Tags
             "metaTitle": {
                 "en": "Raphael R. de Moura Neto - SOC Analyst | Cybersecurity Expert",
                 "pt": "Raphael R. de Moura Neto - Analista SOC | Especialista em Cibersegurança"
@@ -1352,7 +1336,6 @@
                 "en": "Initializing Security Systems...",
                 "pt": "Inicializando Sistemas de Segurança..."
             },
-            // Nav
             "navHome": { "en": "HOME", "pt": "INÍCIO" },
             "navMetrics": { "en": "METRICS", "pt": "MÉTRICAS" },
             "navAbout": { "en": "ABOUT", "pt": "SOBRE" },
@@ -1360,8 +1343,6 @@
             "navSkills": { "en": "SKILLS", "pt": "HABILIDADES" },
             "navProjects": { "en": "PROJECTS", "pt": "PROJETOS" },
             "navContact": { "en": "CONTACT", "pt": "CONTATO" },
-
-            // Hero
             "typewriterTexts": {
                 "en": ['SOC Analyst', 'Threat Hunter', 'Security Automation Expert', 'Incident Response Specialist', 'Python Developer', 'Blue Team Defender'],
                 "pt": ['Analista de SOC', 'Caçador de Ameaças (Threat Hunter)', 'Especialista em Automação', 'Resposta a Incidentes', 'Desenvolvedor Python', 'Defensor do Blue Team']
@@ -1369,8 +1350,7 @@
             "statusBarSecure": { "en": "System Status: SECURE", "pt": "Status do Sistema: SEGURO" },
             "statusBarThreats": { "en": "Threats Blocked:", "pt": "Ameaças Bloqueadas:" },
             "statusBarUptime": { "en": "Uptime: 99.9%", "pt": "Atividade: 99.9%" },
-
-            // Metrics
+            "statusBarVisitors": { "en": "Visitors:", "pt": "Visitantes:" },
             "metricsTitle": { "en": "LIVE METRICS DASHBOARD", "pt": "PAINEL DE MÉTRICAS AO VIVO" },
             "metric1Label": { "en": "Incidents Resolved", "pt": "Incidentes Resolvidos" },
             "metric2Label": { "en": "Detection Time", "pt": "Tempo de Detecção" },
@@ -1378,16 +1358,12 @@
             "metric4Label": { "en": "False Positives Reduced", "pt": "Redução de Falsos Positivos" },
             "metric5Label": { "en": "Automation Scripts", "pt": "Scripts de Automação" },
             "metric6Label": { "en": "Hours Saved Weekly", "pt": "Horas Salvas por Semana" },
-
-            // About
             "aboutTitle": { "en": "TERMINAL ACCESS", "pt": "ACESSO AO TERMINAL" },
             "aboutLine1": { "en": "> Age 55, transformed career to cybersecurity", "pt": "> 55 anos, carreira transformada para cibersegurança" },
             "aboutLine2": { "en": "> 3+ years protecting critical infrastructure", "pt": "> 3+ anos protegendo infraestrutura crítica" },
             "aboutLine3": { "en": "> Passionate about automation and threat hunting", "pt": "> Apaixonado por automação e 'threat hunting'" },
             "aboutLine4": { "en": "> From Brazil, thinking globally about security", "pt": "> Do Brasil, pensando globalmente sobre segurança" },
             "aboutLine5": { "en": "> \"It's never too late to restart\"", "pt": "> \"Nunca é tarde para recomeçar\"" },
-
-            // Experience
             "expTitle": { "en": "EXPERIENCE TIMELINE", "pt": "LINHA DO TEMPO DA EXPERIÊNCIA" },
             "exp1Role": { "en": "SOC Analyst", "pt": "Analista de SOC" },
             "exp1Badge": { "en": "ACTIVE", "pt": "ATUAL" },
@@ -1396,8 +1372,6 @@
             "exp2Date": { "en": "Sep 2023 - Jul 2025", "pt": "Set 2023 - Jul 2025" },
             "exp3Role": { "en": "Cyber Security Analyst", "pt": "Analista de Cibersegurança" },
             "exp3Date": { "en": "Jun 2022 - Mar 2023", "pt": "Jun 2022 - Mar 2023" },
-
-            // Skills
             "skillsTitle": { "en": "SKILLS MATRIX", "pt": "MATRIZ DE HABILIDADES" },
             "skillsCat1": { "en": "&lt;/&gt; Security Operations", "pt": "&lt;/&gt; Operações de Segurança" },
             "skill1_1": { "en": "SIEM Management", "pt": "Gerenciamento de SIEM" },
@@ -1411,8 +1385,6 @@
             "skill3_1": { "en": "Splunk/QRadar/Wazuh", "pt": "Splunk/QRadar/Wazuh" },
             "skill3_2": { "en": "DLP Solutions", "pt": "Soluções de DLP" },
             "skill3_3": { "en": "Linux Administration", "pt": "Administração Linux" },
-
-            // Projects
             "projectsTitle": { "en": "PROJECTS SHOWCASE", "pt": "VITRINE DE PROJETOS" },
             "proj1Title": { "en": "🤖 Automated Triage System", "pt": "🤖 Sistema de Triagem Automatizado" },
             "proj1Desc": { "en": "Python-based system integrating with Splunk and QRadar for automatic alert categorization", "pt": "Sistema em Python integrado com Splunk e QRadar para categorização automática de alertas" },
@@ -1429,8 +1401,6 @@
             "proj3Stat1": { "en": "100+ threats prevented monthly", "pt": "Mais de 100 ameaças prevenidas mensalmente" },
             "proj3Stat2": { "en": "API integrations with 5+ tools", "pt": "Integrações de API com mais de 5 ferramentas" },
             "proj3Stat3": { "en": "97% accuracy rate", "pt": "Taxa de precisão de 97%" },
-
-            // Certifications
             "certsTitle": { "en": "CERTIFICATIONS", "pt": "CERTIFICAÇÕES" },
             "cert1Name": { "en": "Google IT Security Professional", "pt": "Google IT Security Professional" },
             "cert1Issuer": { "en": "Google", "pt": "Google" },
@@ -1448,8 +1418,6 @@
             "cert7Issuer": { "en": "Coursera", "pt": "Coursera" },
             "cert8Name": { "en": "Python Essentials", "pt": "Python Essentials" },
             "cert8Issuer": { "en": "Cisco Networking Academy", "pt": "Cisco Networking Academy" },
-            
-            // Security Feed
             "feedTitle": { "en": "LIVE SECURITY FEED", "pt": "FEED DE SEGURANÇA AO VIVO" },
             "feedStatus": { "en": "MONITORING ACTIVE", "pt": "MONITORAMENTO ATIVO" },
             "feedItems": {
@@ -1481,36 +1449,27 @@
             "feedTypeBlocked": { "en": "blocked", "pt": "bloqueado" },
             "feedTypeDetected": { "en": "detected", "pt": "detectado" },
             "feedTypeSecured": { "en": "secured", "pt": "protegido" },
-
-            // Contact
             "contactTitle": { "en": "CONTACT", "pt": "CONTATO" },
             "contactSub": { "en": "Let's secure the future together", "pt": "Vamos proteger o futuro juntos" },
             "contactPhone": { "en": "Phone", "pt": "Telefone" },
             "contactLocation": { "en": "Location", "pt": "Localização" },
             "downloadCV": { "en": "DOWNLOAD CV", "pt": "BAIXAR CV" },
-
-            // Footer
             "footerCopy": { "en": "&copy; 2024 Raphael R. de Moura Neto | Built with security in mind", "pt": "&copy; 2024 Raphael R. de Moura Neto | Construído com a segurança em mente" },
             "footerQuote": { "en": "\"It's never too late to restart\"", "pt": "\"Nunca é tarde para recomeçar\"" },
-
-            // Easter Egg
             "easterEggTitle": { "en": "🛡️ Nice try!", "pt": "🛡️ Boa tentativa!" },
             "easterEggLine1": { "en": "But I'm on the Blue Team!", "pt": "Mas eu sou do Time Azul!" },
             "easterEggLine2": { "en": "Press ESC to continue...", "pt": "Pressione ESC para continuar..." }
         };
 
-        // Variáveis globais para scripts dinâmicos
         let currentLang = 'en';
         let typewriterTexts = [];
         let feedItems = [];
         let feedTypeStrings = {};
 
-        // Função principal de tradução
         function setLanguage(lang) {
             currentLang = lang;
-            document.documentElement.lang = lang; // Atualiza o lang da tag <html>
+            document.documentElement.lang = lang; 
 
-            // Traduz todos os elementos com data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.dataset.key;
                 if (translations[key] && translations[key][lang]) {
@@ -1524,7 +1483,6 @@
                 }
             });
 
-            // Atualiza os botões
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.dataset.lang === lang) {
@@ -1532,7 +1490,6 @@
                 }
             });
 
-            // Atualiza dados para scripts dinâmicos
             typewriterTexts = translations.typewriterTexts[lang];
             feedItems = translations.feedItems[lang];
             feedTypeStrings = {
@@ -1541,25 +1498,19 @@
                 secured: translations.feedTypeSecured[lang]
             };
 
-            // Reinicia o typewriter
             textIndex = 0;
             charIndex = 0;
             isDeleting = false;
-            // A função type() vai pegar a nova lista 'texts'
             
-            // Reinicia o feed
             resetFeed();
 
-            // Salva a escolha no localStorage
             localStorage.setItem('language', lang);
         }
         
         // ======================================================
-        // FIM DO SCRIPT DE TRADUÇÃO
+        // SCRIPTS DA PÁGINA
         // ======================================================
 
-
-        // Matrix Rain Effect
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
 
@@ -1611,14 +1562,13 @@
         window.addEventListener('resize', resetMatrix);
 
 
-        // Typewriter Effect
         const typewriterElement = document.getElementById('typewriter');
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
 
         function type() {
-            if (!typewriterTexts.length) return; // Não roda se os textos não estiverem carregados
+            if (!typewriterTexts || !typewriterTexts.length) return; 
             
             const currentText = typewriterTexts[textIndex];
             
@@ -1641,9 +1591,7 @@
                 setTimeout(type, isDeleting ? 50 : 100);
             }
         }
-        // type() é chamado após setLanguage
 
-        // Counter Animation
         function animateCounter(element, target, suffix = '') {
             let current = 0;
             const increment = target / 50; 
@@ -1657,7 +1605,6 @@
             }, 30);
         }
 
-        // Threats Counter
         const threatsCounter = document.getElementById('threats-counter');
         function updateThreats() {
             const random = Math.floor(Math.random() * 10) + 120;
@@ -1666,7 +1613,26 @@
         }
         updateThreats();
 
-        // Animate metrics on scroll
+        function updateVisitorCount() {
+            const counterElement = document.getElementById('visitor-counter');
+            if (!counterElement) return;
+            
+            // Usamos uma chave única para o seu site.
+            // O 'namespace' 'raphaelneto11' e 'key' 'portfolio' garantem que é só seu.
+            const namespace = 'raphaelneto11';
+            const key = 'portfolio';
+            
+            fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+                .then(response => response.json())
+                .then(data => {
+                    counterElement.textContent = data.value;
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar contador de visitas:", error);
+                    counterElement.textContent = "N/A";
+                });
+        }
+
         const metricsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1688,7 +1654,6 @@
             metricsObserver.observe(metricsSection);
         }
 
-        // Animate skills on scroll
         const skillsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1706,13 +1671,11 @@
             skillsObserver.observe(skillsSection);
         }
 
-
-        // Live Security Feed
         const feedContent = document.getElementById('feed-content');
         let feedInterval;
 
         function addFeedItem() {
-            if (!feedContent || !feedItems.length) return;
+            if (!feedContent || !feedItems || !feedItems.length) return;
             const item = feedItems[Math.floor(Math.random() * feedItems.length)];
             const time = new Date().toLocaleTimeString(currentLang, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
             
@@ -1733,13 +1696,12 @@
         
         function resetFeed() {
             if (!feedContent) return;
-            feedContent.innerHTML = ''; // Limpa o feed
+            feedContent.innerHTML = ''; 
             for (let i = 0; i < 5; i++) {
                 addFeedItem();
             }
         }
 
-        // Easter Egg
         let konamiCode = [];
         const konamiPattern = ['h', 'a', 'c', 'k'];
         
@@ -1759,16 +1721,11 @@
         });
 
         
-        // ======================================================
-        // INICIALIZAÇÃO DA PÁGINA
-        // ======================================================
         document.addEventListener('DOMContentLoaded', () => {
-            // Remove loader
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
             }, 1500);
 
-            // Configuração dos botões de idioma
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -1776,20 +1733,17 @@
                 });
             });
 
-            // Carrega o idioma salvo ou o padrão 'en'
             const preferredLanguage = localStorage.getItem('language') || 'en';
             setLanguage(preferredLanguage);
             
-            // Inicia o typewriter DEPOIS de setar o idioma
             type();
             
-            // Inicia o feed DEPOIS de setar o idioma
-            if (feedInterval) clearInterval(feedInterval); // Limpa o intervalo antigo se houver
+            updateVisitorCount();
+            
+            if (feedInterval) clearInterval(feedInterval);
             feedInterval = setInterval(addFeedItem, 3000);
         });
 
-
-        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1809,8 +1763,6 @@
             });
         });
 
-
-        // Parallax effect on scroll
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallax = document.getElementById('matrix');
