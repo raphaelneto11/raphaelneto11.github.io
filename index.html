@@ -1220,4 +1220,339 @@
                     <div class="cert-icon">📊</div>
                     <div class="cert-name">Wazuh for Security Engineers</div>
                     <div class="cert-issuer">Wazuh</div>
-                    <div class="cert-
+                    <div class="cert-year">2023</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🎓</div>
+                    <div class="cert-name">Google CyberSecurity Certificate</div>
+                    <div class="cert-issuer">Coursera</div>
+                    <div class="cert-year">2024</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🐍</div>
+                    <div class="cert-name">Python Essentials</div>
+                    <div class="cert-issuer">Cisco Networking Academy</div>
+                    <div class="cert-year">2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="security-feed">
+        <div class="container">
+            <h2 class="section-title">LIVE SECURITY FEED</h2>
+            <div class="feed-container">
+                <div class="feed-header">
+                    <div class="feed-status">
+                        <span class="live-indicator">LIVE</span>
+                        <span>MONITORING ACTIVE</span>
+                    </div>
+                </div>
+                <div class="feed-content" id="feed-content">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">CONTACT</h2>
+            <p style="margin-bottom: 30px; color: var(--text-gray);">Let's secure the future together</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <a href="mailto:raphaelmoura@live.com.pt">raphaelmoura@live.com.pt</a>
+                </div>
+                <div class="contact-item">
+                    <h3>💼 LinkedIn</h3>
+                    <a href="https://linkedin.com/in/raphaelneto11" target="_blank">linkedin.com/in/raphaelneto11</a>
+                </div>
+                <div class="contact-item">
+                    <h3>📱 Phone</h3>
+                    <a href="tel:+5514998189598">(14) 99818-9598</a>
+                </div>
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <span style="color: var(--text-white); font-size: 0.9rem;">Avaré, SP, Brazil</span>
+                </div>
+            </div>
+            
+            <a href="./CV.pdf" class="download-cv" download>DOWNLOAD CV</a>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Raphael R. de Moura Neto | Built with security in mind</p>
+            <p class="footer-quote">"It's never too late to restart"</p>
+        </div>
+    </footer>
+
+    <div class="easter-egg" id="easter-egg">
+        <h3 style="color: var(--primary-green); margin-bottom: 15px;">🛡️ Nice try!</h3>
+        <p style="color: var(--text-white);">But I'm on the Blue Team!</p>
+        <p style="color: var(--text-gray); margin-top: 15px; font-size: 0.85rem;">Press ESC to continue...</p>
+    </div>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        matrix = matrix.split("");
+
+        let fontSize = 10;
+        let columns = canvas.width / fontSize;
+
+        let drops = [];
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrix[Math.floor(Math.random() * matrix.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        let matrixInterval = setInterval(drawMatrix, 35);
+        
+        function resetMatrix() {
+            clearInterval(matrixInterval);
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = canvas.width / fontSize;
+            drops = [];
+            for(let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+            matrixInterval = setInterval(drawMatrix, 35);
+        }
+        window.addEventListener('resize', resetMatrix);
+
+
+        // Typewriter Effect
+        const typewriter = document.getElementById('typewriter');
+        const texts = [
+            'SOC Analyst',
+            'Threat Hunter',
+            'Security Automation Expert',
+            'Incident Response Specialist',
+            'Python Developer',
+            'Blue Team Defender'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typewriter.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriter.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(type, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+        type(); // Inicia o typewriter
+
+        // Counter Animation
+        function animateCounter(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 50; 
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 30);
+        }
+
+        // Threats Counter
+        const threatsCounter = document.getElementById('threats-counter');
+        function updateThreats() {
+            const random = Math.floor(Math.random() * 10) + 120;
+            threatsCounter.textContent = random;
+            setTimeout(updateThreats, 3000);
+        }
+        updateThreats(); // Inicia o contador de ameaças
+
+        // Animate metrics on scroll
+        const metricsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const metricValues = entry.target.querySelectorAll('.metric-value[data-target]');
+                    metricValues.forEach(metric => {
+                        const targetStr = metric.getAttribute('data-target');
+                        const target = parseInt(targetStr);
+                        const suffix = targetStr.replace(target.toString(), ''); 
+                        
+                        animateCounter(metric, target, suffix);
+                    });
+                    metricsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const metricsSection = document.getElementById('metrics');
+        if (metricsSection) {
+            metricsObserver.observe(metricsSection);
+        }
+
+        // Animate skills on scroll
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress[data-width]');
+                    skillBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
+        }
+
+
+        // Live Security Feed
+        const feedItems = [
+            { type: 'blocked', message: 'Brute force attempt from IP 10.0.0.45' },
+            { type: 'detected', message: 'Potential data exfiltration attempt' },
+            { type: 'secured', message: 'Vulnerability patched successfully' },
+            { type: 'blocked', message: 'SQL injection attempt detected' },
+            { type: 'detected', message: 'Suspicious registry modification' },
+            { type:C 'secured', message: 'Security scan completed - 0 critical issues' },
+            { type: 'blocked', message: 'Malware execution blocked' },
+            { type: 'detected', message: 'Anomalous network traffic pattern' },
+            { type: 'secured', message: 'Firewall rules updated' },
+            { type: 'blocked', message: 'Unauthorized access attempt' }
+        ];
+
+        function addFeedItem() {
+            const feedContent = document.getElementById('feed-content');
+            if (!feedContent) return; 
+            const item = feedItems[Math.floor(Math.random() * feedItems.length)];
+            const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            
+            const feedDiv = document.createElement('div');
+            feedDiv.className = `feed-item ${item.type}`;
+            feedDiv.innerHTML = `
+                <span class="feed-time">${time}</span>
+                <span class="feed-type ${item.type}">${item.type}</span>
+                <span>${item.message}</span>
+            `;
+            
+            feedContent.insertBefore(feedDiv, feedContent.firstChild);
+            
+            while (feedContent.children.length > 10) {
+                feedContent.removeChild(feedContent.lastChild);
+            }
+        }
+        
+        // Easter Egg
+        let konamiCode = [];
+        const konamiPattern = ['h', 'a', 'c', 'k'];
+        
+        document.addEventListener('keypress', (e) => {
+            konamiCode.push(e.key.toLowerCase());
+            konamiCode = konamiCode.slice(-4);
+            
+            if (konamiCode.join('') === konamiPattern.join('')) {
+                document.getElementById('easter-egg').classList.add('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('easter-egg').classList.remove('active');
+            }
+        });
+
+        
+        // CORREÇÃO JAVASCRIPT: Bug da tela de loading
+        // E INICIALIZAÇÃO DE SCRIPTS PÓS-LOAD
+        document.addEventListener('DOMContentLoaded', () => {
+            // Remove loader
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+
+            // Inicia o feed de segurança
+            const feedContent = document.getElementById('feed-content');
+            if (feedContent) {
+                 for (let i = 0; i < 5; i++) {
+                    addFeedItem();
+                }
+                setInterval(addFeedItem, 3000);
+            }
+        });
+
+
+        // CORREÇÃO JAVASCRIPT: Bug do Smooth Scroll com href="#"
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+
+                if (href && href.length > 1) { 
+                    e.preventDefault(); 
+                    
+                    try {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    } catch (err) {
+                        console.error("Erro no smooth scroll:", err);
+                    }
+                }
+            });
+        });
+
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.getElementById('matrix');
+            if (parallax) { 
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
