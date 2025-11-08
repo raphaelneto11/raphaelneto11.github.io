@@ -1613,23 +1613,25 @@
         }
         updateThreats();
 
+        // FUNÇÃO DO CONTADOR DE VISITAS (COM PROVA SOCIAL)
         function updateVisitorCount() {
             const counterElement = document.getElementById('visitor-counter');
             if (!counterElement) return;
             
-            // Usamos uma chave única para o seu site.
-            // O 'namespace' 'raphaelneto11' e 'key' 'portfolio' garantem que é só seu.
             const namespace = 'raphaelneto11';
-            const key = 'portfolio';
+            // Usamos uma chave única. Se quiser resetar, mude para "portfolio-v3"
+            const key = 'portfolio-v2'; 
             
             fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
                 .then(response => response.json())
                 .then(data => {
-                    counterElement.textContent = data.value;
+                    const realCount = data.value;
+                    const displayCount = realCount + 1539; // <-- SUA PROVA SOCIAL!
+                    counterElement.textContent = displayCount.toLocaleString(currentLang);
                 })
                 .catch(error => {
                     console.error("Erro ao carregar contador de visitas:", error);
-                    counterElement.textContent = "N/A";
+                    counterElement.textContent = "1500+"; // Fallback
                 });
         }
 
@@ -1738,7 +1740,7 @@
             
             type();
             
-            updateVisitorCount();
+            updateVisitorCount(); // CHAMA O CONTADOR COM PROVA SOCIAL
             
             if (feedInterval) clearInterval(feedInterval);
             feedInterval = setInterval(addFeedItem, 3000);
