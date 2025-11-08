@@ -1547,7 +1547,7 @@
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallax = document.getElementById('matrix');
-            if (parallax) { // Adiciona verificação para segurança
+            if (parallax) { 
                 parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
