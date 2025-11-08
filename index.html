@@ -148,7 +148,7 @@
             position: relative;
         }
         
-        /* NOVO ESTILO PARA A FOTO DE PERFIL */
+        /* ESTILO PARA A FOTO DE PERFIL */
         .hero-photo {
             width: 150px;
             height: 150px;
@@ -156,7 +156,7 @@
             border: 4px solid var(--primary-green);
             box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
             margin-bottom: 25px;
-            object-fit: cover; /* Garante que a foto não distorça */
+            object-fit: cover;
         }
 
         .hero-content h1 {
@@ -885,7 +885,6 @@
             .metrics-grid, .contact-grid {
                 grid-template-columns: 1fr;
             }
-            /* AJUSTE CSS: Diminui a foto em telas pequenas */
             .hero-photo {
                 width: 120px;
                 height: 120px;
@@ -943,4 +942,882 @@
                 transform: translate(-50%, -50%) scale(0);
             }
             100% {
-                transform: translate(-50%, -50%)
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-text" data-key="loaderText">Initializing Security Systems...</div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#hero" data-key="navHome">HOME</a></li>
+            <li><a href="#metrics" data-key="navMetrics">METRICS</a></li>
+            <li><a href="#about" data-key="navAbout">ABOUT</a></li>
+            <li><a href="#experience" data-key="navExperience">EXPERIENCE</a></li>
+            <li><a href="#skills" data-key="navSkills">SKILLS</a></li>
+            <li><a href="#projects" data-key="navProjects">PROJECTS</a></li>
+            <li><a href="#contact" data-key="navContact">CONTACT</a></li>
+            <li class="lang-switcher">
+                <a href="#" class="lang-btn active" data-lang="en">EN</a>
+                <span>|</span>
+                <a href="#" class="lang-btn" data-lang="pt">PT</a>
+            </li>
+        </ul>
+    </nav>
+
+    <canvas id="matrix"></canvas>
+
+    <section id="hero">
+        <div class="hero-content">
+            <img src="./teste01.jpg" alt="Foto de Raphael Neto" class="hero-photo">
+            
+            <h1 data-key="heroTitle">RAPHAEL NETO</h1>
+            <div class="typewriter" id="typewriter"></div>
+            <div class="status-bar">
+                <span><span class="status-indicator"></span><span data-key="statusBarSecure">System Status: SECURE</span></span>
+                <span><span data-key="statusBarThreats">Threats Blocked:</span> <span id="threats-counter">0</span></span>
+                <span><span data-key="statusBarUptime">Uptime: 99.9%</span></span>
+                <span><span data-key="statusBarVisitors">Visitors:</span> <span id="visitor-counter">...</span></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics">
+        <div class="container">
+            <h2 class="section-title" data-key="metricsTitle">LIVE METRICS DASHBOARD</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value" data-target="500+">0</div>
+                    <div class="metric-label" data-key="metric1Label">Incidents Resolved</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">&lt;15min</div>
+                    <div class="metric-label" data-key="metric2Label">Detection Time</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="40%">0%</div>
+                    <div class="metric-label" data-key="metric3Label">MTTR Reduction</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="35%">0%</div>
+                    <div class="metric-label" data-key="metric4Label">False Positives Reduced</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="15+">0</div>
+                    <div class="metric-label" data-key="metric5Label">Automation Scripts</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="20h">0h</div>
+                    <div class="metric-label" data-key="metric6Label">Hours Saved Weekly</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-key="aboutTitle">TERMINAL ACCESS</h2>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-btn red"></span>
+                    <span class="terminal-btn yellow"></span>
+                    <span class="terminal-btn green"></span>
+                </div>
+                <div class="terminal-content">
+                    <div><span class="prompt">raphael@soc-workstation ~ $</span> cat about.txt</div>
+                    <div class="output" data-key="aboutLine1">> Age 55, transformed career to cybersecurity</div>
+                    <div class="output" data-key="aboutLine2">> 3+ years protecting critical infrastructure</div>
+                    <div class="output" data-key="aboutLine3">> Passionate about automation and threat hunting</div>
+                    <div class="output" data-key="aboutLine4">> From Brazil, thinking globally about security</div>
+                    <div class="output" data-key="aboutLine5">> "It's never too late to restart"</div>
+                    <div><span class="prompt">raphael@soc-workstation ~ $</span> <span class="cursor"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title" data-key="expTitle">EXPERIENCE TIMELINE</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3><span data-key="exp1Role">SOC Analyst</span> <span class="badge-active" data-key="exp1Badge">ACTIVE</span></h3>
+                        <div class="company">Nobug Tecnologia</div>
+                        <div class="date" data-key="exp1Date">Jul 2025 - Present</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 data-key="exp2Role">Cyber Security Analyst</h3>
+                        <div class="company">Vultus Cybersecurity</div>
+                        <div class="date" data-key="exp2Date">Sep 2023 - Jul 2025</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 data-key="exp3Role">Cyber Security Analyst</h3>
+                        <div class="company">ISH Tecnologia</div>
+                        <div class="date" data-key="exp3Date">Jun 2022 - Mar 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title" data-key="skillsTitle">SKILLS MATRIX</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 data-key="skillsCat1">&lt;/&gt; Security Operations</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill1_1">SIEM Management</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill1_2">Incident Response</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill1_3">Threat Hunting</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-key="skillsCat2">&lt;/&gt; Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill2_1">Python Automation</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill2_2">Cloud Security (AWS)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill2_3">Digital Forensics</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-key="skillsCat3">&lt;/&gt; Tools & Platforms</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill3_1">Splunk/QRadar/Wazuh</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill3_2">DLP Solutions</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-key="skill3_3">Linux Administration</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title" data-key="projectsTitle">PROJECTS SHOWCASE</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 data-key="proj1Title">🤖 Automated Triage System</h3>
+                    <p data-key="proj1Desc">Python-based system integrating with Splunk and QRadar for automatic alert categorization</p>
+                    <ul class="project-stats">
+                        <li data-key="proj1Stat1">Reduced false positives by 35%</li>
+                        <li data-key="proj1Stat2">Saved 20h/week for the team</li>
+                        <li data-key="proj1Stat3">Automated 80% of L1 alerts</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SIEM API</span>
+                        <span class="tag">Machine Learning</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 data-key="proj2Title">📊 Executive Security Dashboard</h3>
+                    <p data-key="proj2Desc">Real-time dashboard translating technical metrics into business language for C-level</p>
+                    <ul class="project-stats">
+                        <li data-key="proj2Stat1">Custom KPIs and metrics</li>
+                        <li data-key="proj2Stat2">Used by C-level executives</li>
+                        <li data-key="proj2Stat3">Real-time threat intelligence</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 data-key="proj3Title">🔍 Anomaly Detection Framework</h3>
+                    <p data-key="proj3Desc">Custom framework using behavioral analysis to detect unusual patterns</p>
+                    <ul class="project-stats">
+                        <li data-key="proj3Stat1">100+ threats prevented monthly</li>
+                        <li data-key="proj3Stat2">API integrations with 5+ tools</li>
+                        <li data-key="proj3Stat3">97% accuracy rate</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">API Integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title" data-key="certsTitle">CERTIFICATIONS</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🔐</div>
+                    <div class="cert-name" data-key="cert1Name">Google IT Security Professional</div>
+                    <div class="cert-issuer" data-key="cert1Issuer">Google</div>
+                    <div class="cert-year">2024</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">☁️</div>
+                    <div class="cert-name" data-key="cert2Name">Fundamentos da AWS</div>
+                    <div class="cert-issuer" data-key="cert2Issuer">Escola da Nuvem</div>
+                    <div class="cert-year">2023</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📋</div>
+                    <div class="cert-name" data-key="cert3Name">ISO 27001 Associate</div>
+                    <div class="cert-issuer" data-key="cert3Issuer">ISO</div>
+                    <div class="cert-year">2023</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🛡️</div>
+                    <div class="cert-name" data-key="cert4Name">CyberOps Associate</div>
+                    <div class="cert-issuer" data-key="cert4Issuer">Cisco</div>
+                    <div class="cert-year">2022</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🌐</div>
+                    <div class="cert-name" data-key="cert5Name">CCNA v7</div>
+                    <div class="cert-issuer" data-key="cert5Issuer">Cisco</div>
+                    <div class="cert-year">2022</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📊</div>
+                    <div class="cert-name" data-key="cert6Name">Wazuh for Security Engineers</div>
+                    <div class="cert-issuer" data-key="cert6Issuer">Wazuh</div>
+                    <div class="cert-year">2023</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🎓</div>
+                    <div class="cert-name" data-key="cert7Name">Google CyberSecurity Certificate</div>
+                    <div class="cert-issuer" data-key="cert7Issuer">Coursera</div>
+                    <div class="cert-year">2024</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🐍</div>
+                    <div class="cert-name" data-key="cert8Name">Python Essentials</div>
+                    <div class="cert-issuer" data-key="cert8Issuer">Cisco Networking Academy</div>
+                    <div class="cert-year">2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="security-feed">
+        <div class="container">
+            <h2 class="section-title" data-key="feedTitle">LIVE SECURITY FEED</h2>
+            <div class="feed-container">
+                <div class="feed-header">
+                    <div class="feed-status">
+                        <span class="live-indicator">LIVE</span>
+                        <span data-key="feedStatus">MONITORING ACTIVE</span>
+                    </div>
+                </div>
+                <div class="feed-content" id="feed-content">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-key="contactTitle">CONTACT</h2>
+            <p style="margin-bottom: 30px; color: var(--text-gray);" data-key="contactSub">Let's secure the future together</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <a href="mailto:raphaelmoura@live.com.pt">raphaelmoura@live.com.pt</a>
+                </div>
+                <div class="contact-item">
+                    <h3>💼 LinkedIn</h3>
+                    <a href="https://linkedin.com/in/raphaelneto11" target="_blank">linkedin.com/in/raphaelneto11</a>
+                </div>
+                <div class="contact-item">
+                    <h3 data-key="contactPhone">Phone</h3>
+                    <a href="tel:+5514998189598">(14) 99818-9598</a>
+                </div>
+                <div class="contact-item">
+                    <h3 data-key="contactLocation">Location</h3>
+                    <span style="color: var(--text-white); font-size: 0.9rem;">Avaré, SP, Brazil</span>
+                </div>
+            </div>
+            
+            <a href="./CV.pdf" class="download-cv" download data-key="downloadCV">DOWNLOAD CV</a>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p data-key="footerCopy">&copy; 2024 Raphael R. de Moura Neto | Built with security in mind</p>
+            <p class="footer-quote" data-key="footerQuote">"It's never too late to restart"</p>
+        </div>
+    </footer>
+
+    <div class="easter-egg" id="easter-egg">
+        <h3 style="color: var(--primary-green); margin-bottom: 15px;" data-key="easterEggTitle">🛡️ Nice try!</h3>
+        <p style="color: var(--text-white);" data-key="easterEggLine1">But I'm on the Blue Team!</p>
+        <p style="color: var(--text-gray); margin-top: 15px; font-size: 0.85rem;" data-key="easterEggLine2">Press ESC to continue...</p>
+    </div>
+
+    <script>
+        // ======================================================
+        // DICIONÁRIO DE TRADUÇÃO
+        // ======================================================
+        const translations = {
+            "metaTitle": {
+                "en": "Raphael Neto - SOC Analyst | Cybersecurity Expert",
+                "pt": "Raphael Neto - Analista SOC | Especialista em Cibersegurança"
+            },
+            "metaDescription": {
+                "en": "SOC Analyst with 3+ years protecting critical infrastructure. 500+ incidents resolved. Specialist in threat hunting and security automation.",
+                "pt": "Analista SOC com mais de 3 anos protegendo infraestrutura crítica. Mais de 500 incidentes resolvidos. Especialista em threat hunting e automação de segurança."
+            },
+            "loaderText": {
+                "en": "Initializing Security Systems...",
+                "pt": "Inicializando Sistemas de Segurança..."
+            },
+            // Nav
+            "navHome": { "en": "HOME", "pt": "INÍCIO" },
+            "navMetrics": { "en": "METRICS", "pt": "MÉTRICAS" },
+            "navAbout": { "en": "ABOUT", "pt": "SOBRE" },
+            "navExperience": { "en": "EXPERIENCE", "pt": "EXPERIÊNCIA" },
+            "navSkills": { "en": "SKILLS", "pt": "HABILIDADES" },
+            "navProjects": { "en": "PROJECTS", "pt": "PROJETOS" },
+            "navContact": { "en": "CONTACT", "pt": "CONTATO" },
+
+            // Hero
+            "heroTitle": { "en": "RAPHAEL NETO", "pt": "RAPHAEL NETO" },
+            "typewriterTexts": {
+                "en": ['SOC Analyst', 'Threat Hunter', 'Security Automation Expert', 'Incident Response Specialist', 'Python Developer', 'Blue Team Defender'],
+                "pt": ['Analista de SOC', 'Caçador de Ameaças (Threat Hunter)', 'Especialista em Automação', 'Resposta a Incidentes', 'Desenvolvedor Python', 'Defensor do Blue Team']
+            },
+            "statusBarSecure": { "en": "System Status: SECURE", "pt": "Status do Sistema: SEGURO" },
+            "statusBarThreats": { "en": "Threats Blocked:", "pt": "Ameaças Bloqueadas:" },
+            "statusBarUptime": { "en": "Uptime: 99.9%", "pt": "Atividade: 99.9%" },
+            "statusBarVisitors": { "en": "Visitors:", "pt": "Visitantes:" },
+
+            // Metrics
+            "metricsTitle": { "en": "LIVE METRICS DASHBOARD", "pt": "PAINEL DE MÉTRICAS AO VIVO" },
+            "metric1Label": { "en": "Incidents Resolved", "pt": "Incidentes Resolvidos" },
+            "metric2Label": { "en": "Detection Time", "pt": "Tempo de Detecção" },
+            "metric3Label": { "en": "MTTR Reduction", "pt": "Redução de MTTR" },
+            "metric4Label": { "en": "False Positives Reduced", "pt": "Redução de Falsos Positivos" },
+            "metric5Label": { "en": "Automation Scripts", "pt": "Scripts de Automação" },
+            "metric6Label": { "en": "Hours Saved Weekly", "pt": "Horas Salvas por Semana" },
+
+            // About
+            "aboutTitle": { "en": "TERMINAL ACCESS", "pt": "ACESSO AO TERMINAL" },
+            "aboutLine1": { "en": "> Age 55, transformed career to cybersecurity", "pt": "> 55 anos, carreira transformada para cibersegurança" },
+            "aboutLine2": { "en": "> 3+ years protecting critical infrastructure", "pt": "> 3+ anos protegendo infraestrutura crítica" },
+            "aboutLine3": { "en": "> Passionate about automation and threat hunting", "pt": "> Apaixonado por automação e 'threat hunting'" },
+            "aboutLine4": { "en": "> From Brazil, thinking globally about security", "pt": "> Do Brasil, pensando globalmente sobre segurança" },
+            "aboutLine5": { "en": "> \"It's never too late to restart\"", "pt": "> \"Nunca é tarde para recomeçar\"" },
+
+            // Experience
+            "expTitle": { "en": "EXPERIENCE TIMELINE", "pt": "LINHA DO TEMPO DA EXPERIÊNCIA" },
+            "exp1Role": { "en": "SOC Analyst", "pt": "Analista de SOC" },
+            "exp1Badge": { "en": "ACTIVE", "pt": "ATUAL" },
+            "exp1Date": { "en": "Jul 2025 - Present", "pt": "Jul 2025 - Presente" },
+            "exp2Role": { "en": "Cyber Security Analyst", "pt": "Analista de Cibersegurança" },
+            "exp2Date": { "en": "Sep 2023 - Jul 2025", "pt": "Set 2023 - Jul 2025" },
+            "exp3Role": { "en": "Cyber Security Analyst", "pt": "Analista de Cibersegurança" },
+            "exp3Date": { "en": "Jun 2022 - Mar 2023", "pt": "Jun 2022 - Mar 2023" },
+
+            // Skills
+            "skillsTitle": { "en": "SKILLS MATRIX", "pt": "MATRIZ DE HABILIDADES" },
+            "skillsCat1": { "en": "&lt;/&gt; Security Operations", "pt": "&lt;/&gt; Operações de Segurança" },
+            "skill1_1": { "en": "SIEM Management", "pt": "Gerenciamento de SIEM" },
+            "skill1_2": { "en": "Incident Response", "pt": "Resposta a Incidentes" },
+            "skill1_3": { "en": "Threat Hunting", "pt": "Caça a Ameaças (Threat Hunting)" },
+            "skillsCat2": { "en": "&lt;/&gt; Technical Skills", "pt": "&lt;/&gt; Habilidades Técnicas" },
+            "skill2_1": { "en": "Python Automation", "pt": "Automação com Python" },
+            "skill2_2": { "en": "Cloud Security (AWS)", "pt": "Segurança em Nuvem (AWS)" },
+            "skill2_3": { "en": "Digital Forensics", "pt": "Perícia Forense Digital" },
+            "skillsCat3": { "en": "&lt;/&gt; Tools & Platforms", "pt": "&lt;/&gt; Ferramentas e Plataformas" },
+            "skill3_1": { "en": "Splunk/QRadar/Wazuh", "pt": "Splunk/QRadar/Wazuh" },
+            "skill3_2": { "en": "DLP Solutions", "pt": "Soluções de DLP" },
+            "skill3_3": { "en": "Linux Administration", "pt": "Administração Linux" },
+
+            // Projects
+            "projectsTitle": { "en": "PROJECTS SHOWCASE", "pt": "VITRINE DE PROJETOS" },
+            "proj1Title": { "en": "🤖 Automated Triage System", "pt": "🤖 Sistema de Triagem Automatizado" },
+            "proj1Desc": { "en": "Python-based system integrating with Splunk and QRadar for automatic alert categorization", "pt": "Sistema em Python integrado com Splunk e QRadar para categorização automática de alertas" },
+            "proj1Stat1": { "en": "Reduced false positives by 35%", "pt": "Reduziu falsos positivos em 35%" },
+            "proj1Stat2": { "en": "Saved 20h/week for the team", "pt": "Economizou 20h/semana para a equipe" },
+            "proj1Stat3": { "en": "Automated 80% of L1 alerts", "pt": "Automatizou 80% dos alertas N1" },
+            "proj2Title": { "en": "📊 Executive Security Dashboard", "pt": "📊 Painel de Segurança Executivo" },
+            "proj2Desc": { "en": "Real-time dashboard translating technical metrics into business language for C-level", "pt": "Dashboard em tempo real traduzindo métricas técnicas para linguagem de negócios (C-level)" },
+            "proj2Stat1": { "en": "Custom KPIs and metrics", "pt": "KPIs e métricas personalizadas" },
+            "proj2Stat2": { "en": "Used by C-level executives", "pt": "Usado por executivos C-level" },
+            "proj2Stat3": { "en": "Real-time threat intelligence", "pt": "Inteligência de ameaças em tempo real" },
+            "proj3Title": { "en": "🔍 Anomaly Detection Framework", "pt": "🔍 Framework de Detecção de Anomalias" },
+            "proj3Desc": { "en": "Custom framework using behavioral analysis to detect unusual patterns", "pt": "Framework personalizado que usa análise comportamental para detectar padrões incomuns" },
+            "proj3Stat1": { "en": "100+ threats prevented monthly", "pt": "Mais de 100 ameaças prevenidas mensalmente" },
+            "proj3Stat2": { "en": "API integrations with 5+ tools", "pt": "Integrações de API com mais de 5 ferramentas" },
+            "proj3Stat3": { "en": "97% accuracy rate", "pt": "Taxa de precisão de 97%" },
+
+            // Certifications
+            "certsTitle": { "en": "CERTIFICATIONS", "pt": "CERTIFICAÇÕES" },
+            "cert1Name": { "en": "Google IT Security Professional", "pt": "Google IT Security Professional" },
+            "cert1Issuer": { "en": "Google", "pt": "Google" },
+            "cert2Name": { "en": "Fundamentos da AWS", "pt": "Fundamentos da AWS" },
+            "cert2Issuer": { "en": "Escola da Nuvem", "pt": "Escola da Nuvem" },
+            "cert3Name": { "en": "ISO 27001 Associate", "pt": "ISO 27001 Associate" },
+            "cert3Issuer": { "en": "ISO", "pt": "ISO" },
+            "cert4Name": { "en": "CyberOps Associate", "pt": "CyberOps Associate" },
+            "cert4Issuer": { "en": "Cisco", "pt": "Cisco" },
+            "cert5Name": { "en": "CCNA v7", "pt": "CCNA v7" },
+            "cert5Issuer": { "en": "Cisco", "pt": "Cisco" },
+            "cert6Name": { "en": "Wazuh for Security Engineers", "pt": "Wazuh for Security Engineers" },
+            "cert6Issuer": { "en": "Wazuh", "pt": "Wazuh" },
+            "cert7Name": { "en": "Google CyberSecurity Certificate", "pt": "Google CyberSecurity Certificate" },
+            "cert7Issuer": { "en": "Coursera", "pt": "Coursera" },
+            "cert8Name": { "en": "Python Essentials", "pt": "Python Essentials" },
+            "cert8Issuer": { "en": "Cisco Networking Academy", "pt": "Cisco Networking Academy" },
+            
+            // Security Feed
+            "feedTitle": { "en": "LIVE SECURITY FEED", "pt": "FEED DE SEGURANÇA AO VIVO" },
+            "feedStatus": { "en": "MONITORING ACTIVE", "pt": "MONITORAMENTO ATIVO" },
+            "feedItems": {
+                "en": [
+                    { "type": "blocked", "message": "Brute force attempt from IP 10.0.0.45" },
+                    { "type": "detected", "message": "Potential data exfiltration attempt" },
+                    { "type": "secured", "message": "Vulnerability patched successfully" },
+                    { "type": "blocked", "message": "SQL injection attempt detected" },
+                    { "type": "detected", "message": "Suspicious registry modification" },
+                    { "type": "secured", "message": "Security scan completed - 0 critical issues" },
+                    { "type": "blocked", "message": "Malware execution blocked" },
+                    { "type": "detected", "message": "Anomalous network traffic pattern" },
+                    { "type": "secured", "message": "Firewall rules updated" },
+                    { "type": "blocked", "message": "Unauthorized access attempt" }
+                ],
+                "pt": [
+                    { "type": "blocked", "message": "Tentativa de força bruta do IP 10.0.0.45" },
+                    { "type": "detected", "message": "Possível tentativa de exfiltração de dados" },
+                    { "type": "secured", "message": "Vulnerabilidade corrigida com sucesso" },
+                    { "type": "blocked", "message": "Tentativa de injeção de SQL detectada" },
+                    { "type": "detected", "message": "Modificação suspeita no registro" },
+                    { "type": "secured", "message": "Scan de segurança concluído - 0 problemas críticos" },
+                    { "type": "blocked", "message": "Execução de malware bloqueada" },
+                    { "type": "detected", "message": "Padrão de tráfego de rede anômalo" },
+                    { "type": "secured", "message": "Regras de firewall atualizadas" },
+                    { "type": "blocked", "message": "Tentativa de acesso não autorizado" }
+                ]
+            },
+            "feedTypeBlocked": { "en": "blocked", "pt": "bloqueado" },
+            "feedTypeDetected": { "en": "detected", "pt": "detectado" },
+            "feedTypeSecured": { "en": "secured", "pt": "protegido" },
+
+            // Contact
+            "contactTitle": { "en": "CONTACT", "pt": "CONTATO" },
+            "contactSub": { "en": "Let's secure the future together", "pt": "Vamos proteger o futuro juntos" },
+            "contactPhone": { "en": "Phone", "pt": "Telefone" },
+            "contactLocation": { "en": "Location", "pt": "Localização" },
+            "downloadCV": { "en": "DOWNLOAD CV", "pt": "BAIXAR CV" },
+
+            // Footer
+            "footerCopy": { "en": "&copy; 2024 Raphael R. de Moura Neto | Built with security in mind", "pt": "&copy; 2024 Raphael R. de Moura Neto | Construído com a segurança em mente" },
+            "footerQuote": { "en": "\"It's never too late to restart\"", "pt": "\"Nunca é tarde para recomeçar\"" },
+
+            // Easter Egg
+            "easterEggTitle": { "en": "🛡️ Nice try!", "pt": "🛡️ Boa tentativa!" },
+            "easterEggLine1": { "en": "But I'm on the Blue Team!", "pt": "Mas eu sou do Time Azul!" },
+            "easterEggLine2": { "en": "Press ESC to continue...", "pt": "Pressione ESC para continuar..." }
+        };
+
+        // ======================================================
+        // SCRIPTS GLOBAIS
+        // ======================================================
+        let currentLang = 'en';
+        let typewriterTexts = [];
+        let feedItems = [];
+        let feedTypeStrings = {};
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang; 
+
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                if (translations[key] && translations[key][lang]) {
+                    if (element.tagName === 'META') {
+                        element.content = translations[key][lang];
+                    } else if (element.tagName === 'TITLE') {
+                        element.innerText = translations[key][lang];
+                    } else {
+                        element.innerHTML = translations[key][lang];
+                    }
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            typewriterTexts = translations.typewriterTexts[lang];
+            feedItems = translations.feedItems[lang];
+            feedTypeStrings = {
+                blocked: translations.feedTypeBlocked[lang],
+                detected: translations.feedTypeDetected[lang],
+                secured: translations.feedTypeSecured[lang]
+            };
+
+            textIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+            
+            resetFeed();
+
+            localStorage.setItem('language', lang);
+        }
+        
+        // ======================================================
+        // SCRIPTS DA PÁGINA
+        // ======================================================
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        matrix = matrix.split("");
+
+        let fontSize = 10;
+        let columns = canvas.width / fontSize;
+
+        let drops = [];
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrix[Math.floor(Math.random() * matrix.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        let matrixInterval = setInterval(drawMatrix, 35);
+        
+        function resetMatrix() {
+            clearInterval(matrixInterval);
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = canvas.width / fontSize;
+            drops = [];
+            for(let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+            matrixInterval = setInterval(drawMatrix, 35);
+        }
+        window.addEventListener('resize', resetMatrix);
+
+
+        const typewriterElement = document.getElementById('typewriter');
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            if (!typewriterTexts || !typewriterTexts.length) return; 
+            
+            const currentText = typewriterTexts[textIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(type, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typewriterTexts.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+
+        function animateCounter(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 50; 
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 30);
+        }
+
+        const threatsCounter = document.getElementById('threats-counter');
+        function updateThreats() {
+            const random = Math.floor(Math.random() * 10) + 120;
+            threatsCounter.textContent = random;
+            setTimeout(updateThreats, 3000);
+        }
+        updateThreats();
+
+        // FUNÇÃO DO CONTADOR DE VISITAS (COM PROVA SOCIAL)
+        function updateVisitorCount() {
+            const counterElement = document.getElementById('visitor-counter');
+            if (!counterElement) return;
+            
+            const namespace = 'raphaelneto11';
+            const key = 'portfolio-v2'; // Chave única para este projeto
+            
+            fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+                .then(response => response.json())
+                .then(data => {
+                    const realCount = data.value;
+                    const displayCount = realCount + 1539; // <-- SUA PROVA SOCIAL!
+                    // Formata o número com pontos (ex: 1.539)
+                    counterElement.textContent = displayCount.toLocaleString(currentLang.startsWith('pt') ? 'pt-BR' : 'en-US');
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar contador de visitas:", error);
+                    // Fallback em caso de erro (ex: AdBlocker)
+                    counterElement.textContent = "1.500+"; 
+                });
+        }
+
+        const metricsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const metricValues = entry.target.querySelectorAll('.metric-value[data-target]');
+                    metricValues.forEach(metric => {
+                        const targetStr = metric.getAttribute('data-target');
+                        const target = parseInt(targetStr);
+                        const suffix = targetStr.replace(target.toString(), ''); 
+                        
+                        animateCounter(metric, target, suffix);
+                    });
+                    metricsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const metricsSection = document.getElementById('metrics');
+        if (metricsSection) {
+            metricsObserver.observe(metricsSection);
+        }
+
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress[data-width]');
+                    skillBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
+        }
+
+        const feedContent = document.getElementById('feed-content');
+        let feedInterval;
+
+        function addFeedItem() {
+            if (!feedContent || !feedItems || !feedItems.length) return;
+            const item = feedItems[Math.floor(Math.random() * feedItems.length)];
+            const time = new Date().toLocaleTimeString(currentLang.startsWith('pt') ? 'pt-BR' : 'en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            
+            const feedDiv = document.createElement('div');
+            feedDiv.className = `feed-item ${item.type}`;
+            feedDiv.innerHTML = `
+                <span class="feed-time">${time}</span>
+                <span class="feed-type ${item.type}">${feedTypeStrings[item.type]}</span>
+                <span>${item.message}</span>
+            `;
+            
+            feedContent.insertBefore(feedDiv, feedContent.firstChild);
+            
+            while (feedContent.children.length > 10) {
+                feedContent.removeChild(feedContent.lastChild);
+            }
+        }
+        
+        function resetFeed() {
+            if (!feedContent) return;
+            feedContent.innerHTML = ''; 
+            for (let i = 0; i < 5; i++) {
+                addFeedItem();
+            }
+        }
+
+        let konamiCode = [];
+        const konamiPattern = ['h', 'a', 'c', 'k'];
+        
+        document.addEventListener('keypress', (e) => {
+            konamiCode.push(e.key.toLowerCase());
+            konamiCode = konamiCode.slice(-4);
+            
+            if (konamiCode.join('') === konamiPattern.join('')) {
+                document.getElementById('easter-egg').classList.add('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('easter-egg').classList.remove('active');
+            }
+        });
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setLanguage(btn.dataset.lang);
+                });
+            });
+
+            const preferredLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(preferredLanguage);
+            
+            type();
+            
+            updateVisitorCount();
+            
+            if (feedInterval) clearInterval(feedInterval);
+            feedInterval = setInterval(addFeedItem, 3000);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+
+                if (href && href.length > 1) { 
+                    e.preventDefault(); 
+                    
+                    try {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    } catch (err) {
+                        console.error("Erro no smooth scroll:", err);
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.getElementById('matrix');
+            if (parallax) { 
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
