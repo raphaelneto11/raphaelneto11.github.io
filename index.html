@@ -1302,15 +1302,15 @@
             <div class="contact-grid">
                 <div class="contact-item">
                     <h3>📧 Email</h3>
-                    <a href="mailto:raphaelmoura@live.com.pt">raphaelmoura@live.com.pt</a>
+                    <a href="mailto:raphaelmoura@live.com.pt" data-key="contactEmailLink">Send me an email</a>
                 </div>
                 <div class="contact-item">
                     <h3>💼 LinkedIn</h3>
-                    <a href="https://linkedin.com/in/raphaelneto11" target="_blank">linkedin.com/in/raphaelneto11</a>
+                    <a href="https://linkedin.com/in/raphaelneto11" target="_blank" rel="noopener noreferrer">linkedin.com/in/raphaelneto11</a>
                 </div>
                 <div class="contact-item">
-                    <h3 data-key="contactPhone">Phone</h3>
-                    <a href="tel:+5514998189598">(14) 99818-9598</a>
+                    <h3 data-key="contactPhone">WhatsApp</h3>
+                    <a href="https://wa.me/5514998189598" target="_blank" rel="noopener noreferrer">(14) 99818-9598</a>
                 </div>
                 <div class="contact-item">
                     <h3 data-key="contactLocation">Location</h3>
@@ -1488,7 +1488,8 @@
             // Contact
             "contactTitle": { "en": "CONTACT", "pt": "CONTATO" },
             "contactSub": { "en": "Let's secure the future together", "pt": "Vamos proteger o futuro juntos" },
-            "contactPhone": { "en": "Phone", "pt": "Telefone" },
+            "contactEmailLink": { "en": "Send me an email", "pt": "Envie-me um e-mail" },
+            "contactPhone": { "en": "WhatsApp", "pt": "WhatsApp" },
             "contactLocation": { "en": "Location", "pt": "Localização" },
             "downloadCV": { "en": "DOWNLOAD CV", "pt": "BAIXAR CV" },
 
@@ -1657,25 +1658,22 @@
         }
         updateThreats();
 
-        // FUNÇÃO DO CONTADOR DE VISITAS (COM PROVA SOCIAL)
         function updateVisitorCount() {
             const counterElement = document.getElementById('visitor-counter');
             if (!counterElement) return;
             
             const namespace = 'raphaelneto11';
-            const key = 'portfolio-v2'; // Chave única para este projeto
+            const key = 'portfolio-v2';
             
             fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
                 .then(response => response.json())
                 .then(data => {
                     const realCount = data.value;
-                    const displayCount = realCount + 1539; // <-- SUA PROVA SOCIAL!
-                    // Formata o número com pontos (ex: 1.539)
+                    const displayCount = realCount + 1539; 
                     counterElement.textContent = displayCount.toLocaleString(currentLang.startsWith('pt') ? 'pt-BR' : 'en-US');
                 })
                 .catch(error => {
                     console.error("Erro ao carregar contador de visitas:", error);
-                    // Fallback em caso de erro (ex: AdBlocker)
                     counterElement.textContent = "1.500+"; 
                 });
         }
