@@ -1310,7 +1310,7 @@
                 </div>
                 <div class="contact-item">
                     <h3 data-key="contactPhone">WhatsApp</h3>
-                    <a href="https://wa.me/5514998189598" target="_blank" rel="noopener noreferrer">(14) 99818-9598</a>
+                    <a href="https://wa.me/5514998189598" target="_blank" rel="noopener noreferrer" data-key="contactWhatsappLink">Chat on WhatsApp</a>
                 </div>
                 <div class="contact-item">
                     <h3 data-key="contactLocation">Location</h3>
@@ -1490,6 +1490,7 @@
             "contactSub": { "en": "Let's secure the future together", "pt": "Vamos proteger o futuro juntos" },
             "contactEmailLink": { "en": "Send me an email", "pt": "Envie-me um e-mail" },
             "contactPhone": { "en": "WhatsApp", "pt": "WhatsApp" },
+            "contactWhatsappLink": { "en": "Chat on WhatsApp", "pt": "Chamar no WhatsApp" },
             "contactLocation": { "en": "Location", "pt": "Localização" },
             "downloadCV": { "en": "DOWNLOAD CV", "pt": "BAIXAR CV" },
 
@@ -1658,22 +1659,25 @@
         }
         updateThreats();
 
+        // FUNÇÃO DO CONTADOR DE VISITAS (COM PROVA SOCIAL)
         function updateVisitorCount() {
             const counterElement = document.getElementById('visitor-counter');
             if (!counterElement) return;
             
             const namespace = 'raphaelneto11';
-            const key = 'portfolio-v2';
+            const key = 'portfolio-v2'; // Chave única para este projeto
             
             fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
                 .then(response => response.json())
                 .then(data => {
                     const realCount = data.value;
-                    const displayCount = realCount + 1539; 
+                    const displayCount = realCount + 1539; // <-- SUA PROVA SOCIAL!
+                    // Formata o número com pontos (ex: 1.539)
                     counterElement.textContent = displayCount.toLocaleString(currentLang.startsWith('pt') ? 'pt-BR' : 'en-US');
                 })
                 .catch(error => {
                     console.error("Erro ao carregar contador de visitas:", error);
+                    // Fallback em caso de erro (ex: AdBlocker)
                     counterElement.textContent = "1.500+"; 
                 });
         }
